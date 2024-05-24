@@ -15,7 +15,7 @@ export const getContacts = createAsyncThunk('getcontacts/getAll', async (_, thun
     }
 });
 
-export const addContact = createAsyncThunk('https://connections-api.herokuapp.comcontacts/add', async (newContact, thunkAPI) => {
+export const addContact = createAsyncThunk('contacts/add', async (newContact, thunkAPI) => {
 try {
     const response = await axios.post('https://connections-api.herokuapp.com/contacts', newContact);
     return response.data;
@@ -24,7 +24,7 @@ try {
 }
 });
 
-export const deleteContact = createAsyncThunk('https://connections-api.herokuapp.comcontacts/delete', async (id, thunkAPI) =>{
+export const deleteContact = createAsyncThunk('contacts/delete', async (id, thunkAPI) =>{
     try {
         const response = await axios.delete(`https://connections-api.herokuapp.com/contacts/${id}`);
         return response.data;

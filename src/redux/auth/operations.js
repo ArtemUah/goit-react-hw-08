@@ -12,8 +12,9 @@ export const setAuthHeader = (token) => {
 }
 
 const deleteAuthHeader = () => {
-    axios.defaults.headers.post['Authorization']=``;
-}
+    axios.defaults.headers.common['Authorization']=``;
+};
+
 export const register = createAsyncThunk('auth/register', async (newUser, thunkAPI)=>{
 try {
     const response = await axios.post('/users/signup', newUser);
@@ -46,11 +47,15 @@ export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) =>{
 })
 
 export const refreshUser = createAsyncThunk('auth/refresh', async (_, thunkAPI)=>{
+   try {
     const reduxState = thunkAPI.getState();
     const currentToken = reduxState.auth.token;
     setAuthHeader(currentToken);
     const response = await axios.get('/users/current');
     return response.data;
+   } catch (error) {
+    thunkAPI.rejectWithValue(error.message);
+   }
 }, {
     condition(_, thunkAPI) {
         const reduxState = thunkAPI.getState();
