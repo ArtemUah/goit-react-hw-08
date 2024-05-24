@@ -1,0 +1,16 @@
+.container {
+    display: flex;
+    border: 1px solid black;
+    width: 250px;
+    padding: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+p {
+    margin: 0;
+}
+button {
+    width: 50px;
+    height: 25px;
+}

@@ -1,0 +1,20 @@
+.container {
+    display: inline-flex;
+    gap: 20px;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+
+}
+
+.link:hover {
+    color: orangered;
+}
+
+.active {
+    text-decoration: underline;
+    color:orangered;
+}
+
