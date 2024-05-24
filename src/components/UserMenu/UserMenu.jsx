@@ -7,6 +7,7 @@ export default function UserMenu () {
     const user = useSelector(selectUserName);
     const dispatch = useDispatch();
     const handlLogout = () => dispatch(logout());
+    
     return (
         <div className={css.container}>
             <h4>Welcome, {user}</h4>
