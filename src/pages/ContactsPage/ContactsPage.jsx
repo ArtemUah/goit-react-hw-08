@@ -19,7 +19,8 @@ export default function ContactsPage () {
     }, [dispatch]);
 
     return (
-        <div className={css.container}> 
+
+           <div className={css.container}> 
             <ContactForm/>
             <SearchBox/>
             {isLoading && <BasicSpinner/>}
